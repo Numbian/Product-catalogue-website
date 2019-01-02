@@ -1,0 +1,63 @@
+<% include partials/header %>
+
+
+<h2 class="text-center mt-4" >Add new Product</h2>
+<div class="formBg">
+<div class="container mt-4 loginform">
+<form action="/product" method="POST" encType="multipart/form-data">
+
+<div class="form-group">
+    <label for="Name">Product name</label>
+    <input name="name" type="text" class="form-control" id="Name" placeholder="Enter only product code here" maxlength="30" required> 
+  </div>
+
+
+<div class="form-group">
+    <label for="Image">Image</label>
+    <input type="file" name="image1" type="text" class="form-control" id="Image" required> 
+  </div>
+
+
+   <div class="form-group">
+    <label for="Graph">Graph</label>
+    <input name="graphURL" type="file" class="form-control" id="Graph" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="Category">Category</label>
+    <select class="form-control" id="Category" name="category" type="text" required>
+    <%categories.forEach((item) => {%>
+    <option><%=item.categoryName%></option>
+<%})%>
+  </select>
+  </div>
+
+  <div class="form-group">
+    <label for="Area">Description</label>
+ <textarea id="TypeHere" class="form-control" name="description"  rows="10" cols="50" required>Enter detailed description of product.
+  </textarea>
+  </div>
+
+<!-- ///////////// -->
+<label for="Image">Download files</label>
+<div class="productsFiles">
+
+
+<input type="file" class="form-control" id=Image" name="file1" value=""><br>
+
+</div>
+<!-- ///////////// -->
+
+<br>
+ <a class="btn btn-primary addFileButton">Add new file</a>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+    
+
+</div>
+
+</div>
+
+<% include partials/footer %>

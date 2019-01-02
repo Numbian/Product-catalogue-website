@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+<div class="container px-4">
+
+<div class="subsiteSubject my-4">	
+<h1><%=category%></h1>
+</div>
+
+<div class="row">
+<%products.forEach(function(item){%>
+  <div class="col-lg-3 col-md-4 col-sm-6 p-1" onclick="location.href ='/product/<%=item._id%>';">
+  	
+  	
+	  	<div class="card" >
+		  <img class="card-img-top" src="<%=item.images[0].URL%>" alt="<%=item.images[0].alt%>">
+		  <div class="card-body">
+		    <h5 class="card-title"><%= item.name%></h5>
+		  
+		  </div>
+	</div>
+
+
+
+  </div>
+<%})%>
+</div>
+
+</div>
+
+
+<% include partials/footer %>

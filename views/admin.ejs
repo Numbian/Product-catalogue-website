@@ -1,0 +1,43 @@
+<% include partials/header %>
+<link rel="stylesheet" type="text/css" href="/table.css">
+
+<div class="container">
+
+	<div class="subsiteSubject my-4">	
+		<h1>Admin panel</h1>
+	</div>
+
+
+	<a href="/product/new" class="card-link "><button type="button" class="btn btn-dark my-5 ">Add new product</button></a>
+
+
+
+	<table class="paleBlueRows">
+		<thead>
+
+			<tr>
+				<th>Image</th>
+				<th>Product name</th>
+				<th>Category</th>
+				<th>Edit</th> 
+				<th>Delete</th>
+			</tr>
+		</thead>
+
+		<% products.forEach(item=> { %>
+
+		<tr>
+			<td><a href="/product/<%=item._id%>"><img style="width:50px" src="<%=item.images[0].URL%>"></a></td>
+			<td><%=item.name%></td>
+			<td><%=item.category%></td>
+			<td><a href="/product/<%=item._id%>/edit">Edit</td>
+				<td><a href="/product/<%=item._id%>/delete">Delete</td>
+				</tr>
+				<%})%>
+
+			</table>
+		</div>
+
+		<% include partials/footer %>
+
+

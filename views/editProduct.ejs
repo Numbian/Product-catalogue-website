@@ -1,0 +1,82 @@
+<% include partials/header %>
+
+
+
+<h2 class="text-center mt-4" >Edit Product</h2>
+<div class="formBg">
+<div class="container mt-4 loginform">
+<form action="/product/<%=product._id%>" method="POST"  encType="multipart/form-data">
+
+<div class="form-group">
+    <label for="Name">Product name</label>
+    <input value="<%=product.name%>" name="name" type="text" class="form-control" id="Name" placeholder="Enter only product code here" maxlength="30"> 
+  </div>
+
+
+<div class="form-group">
+    <label for="Image">Image</label>
+    <input type="file" name="newImage" type="text" class="form-control" id="Image" > 
+  </div>
+    <div>Current image:</div>
+ <img src="<%=product.images[0].URL%>">
+
+     <div class="form-group">
+    <label for="Graph">Graph</label>
+    <input name="newGraphURL" type="file" class="form-control" id="Graph" >
+  </div>
+  <div>Current graph:</div>
+  <img src="<%=product.graph%>">
+
+
+  
+  <div class="form-group">
+    <label for="Category">Category</label>
+    <select class="form-control" id="Category" name="category" type="text">
+    
+    
+    <%categories.forEach(item => {
+     let tag ='';
+     if(item.categoryName == product.category){
+     tag ='selected="selected"'
+     } else {tag=''}
+    %>
+
+    <option <%=tag%> ><%=item.categoryName%></option>
+
+<%})%>
+  </select>
+  </div>
+
+
+
+ <div class="form-group">
+   <label for="Area">Description</label>
+   <textarea id="TypeHere" class="form-control" name="description"  rows="10" cols="50">
+    <%=product.description%>
+   </textarea>
+ </div>
+
+  <%if(product.downloadFiles.length>0){ 
+                   
+                   product.downloadFiles.forEach(function(item){ %>
+                   <div>
+                   <a href="<%=item.URL%>"><%=item.name%></a>
+                   <button class="btn m-1 btn-sm btn-primary">Delete</button>
+                   </div>
+                   <%})%>
+           <%}else{%>
+           No files to download
+           <%}%>
+
+<a class="btn btn-primary addFileButton">Add new file</a>
+
+<br><br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+
+</div>
+</div>
+
+<% include partials/footer %>

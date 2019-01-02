@@ -1,0 +1,34 @@
+<% include partials/header %>
+
+<div class="container px-4">
+
+<div class="subsiteSubject my-4">	
+<h1>Categories</h1>
+</div>
+
+<div class="row">
+<%categories.forEach(function(item){%>
+  <div class="col-lg-3 col-md-4 col-sm-6 p-1" onclick="location.href ='/categories/<%=item.categoryName%>';">
+  	
+  	
+	  	<div class="card" >
+		  <img class="card-img-top" src="<%=item.photo%>" alt="<%= item.categoryName%>">
+		  <div class="card-body">
+		    <h5 class="card-title"><%= item.categoryName%></h5>
+		  
+		  </div>
+	</div>
+
+
+
+  </div>
+<%})%>
+</div>
+
+</div>
+
+
+<% include partials/footer %>
+
+
+
